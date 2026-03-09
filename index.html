@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
+  <title>Hello, World! 🌍</title>
+
+  <!-- Open Graph / iMessage preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gustav1338.github.io/hello-world/">
+  <meta property="og:title" content="Hello, World! 🌍">
+  <meta property="og:description" content="A rainbow hello from the internet.">
+  <meta property="og:image" content="https://gustav1338.github.io/hello-world/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -11,19 +21,62 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0f0f0f;
+      background: #0a0a0a;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      position: relative;
+      z-index: 2;
     }
     h1 {
-      font-size: clamp(2rem, 8vw, 6rem);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.02em;
+      font-size: clamp(3rem, 10vw, 8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg,
+        #ff0080, #ff4500, #ffd700, #00e676, #00b0ff, #7c4dff, #ff0080
+      );
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shift 4s linear infinite;
     }
-    span { color: #7c3aed; }
+    p {
+      margin-top: 1rem;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: #555;
+      letter-spacing: 0.05em;
+    }
+    @keyframes shift {
+      0%   { background-position: 0% }
+      100% { background-position: 200% }
+    }
+    /* Subtle rainbow glow behind text */
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse, rgba(124,61,255,0.15) 0%, transparent 70%);
+      filter: blur(40px);
+      z-index: 1;
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+    }
   </style>
 </head>
 <body>
-  <h1>Hello, <span>World</span> 🌍</h1>
+  <div class="glow"></div>
+  <div class="container">
+    <h1>Hello, World! 🌍</h1>
+    <p>gustav1338.github.io</p>
+  </div>
 </body>
 </html>
